@@ -1,1 +1,0 @@
-﻿Chromesetup.exe /silent /install
