@@ -1,4 +1,3 @@
-﻿ /silent /install
 # Define the path to the installer
 $installerPath = ".\Chromesetup.exe"
 
