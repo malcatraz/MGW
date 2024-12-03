@@ -1,4 +1,3 @@
-﻿# Define the path to the installer
 $installerPath = ".\7z2408-x64.exe"
 
 # Define the arguments for silent installation
