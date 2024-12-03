@@ -1,5 +1,5 @@
 # Define the URL for the Adobe Reader DC offline installer
-$installerUrl = "https://get.adobe.com/reader/enterprise/"
+$installerUrl = "http://get.adobe.com/reader"
 
 # Define the path to save the installer
 $installerPath = Join-Path $env:TEMP (Split-Path $installerUrl -Leaf)
