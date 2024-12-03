@@ -1,5 +1,5 @@
 # Define the URL for the 7-Zip installer
-$installerUrl = "https://www.7-zip.org/a/7z2408-x64.exe"
+$installerUrl = "https://www.7-zip.org/a/7z2409-x64.exe"
 
 # Define the path to save the installer
 $installerPath = Join-Path $env:TEMP (Split-Path $installerUrl -Leaf)
