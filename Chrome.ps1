@@ -1,11 +1,18 @@
-# Define the path to the installer
-$installerPath = ".\Chromesetup.exe"
+# Define the URL for the Google Chrome installer
+$installerUrl = "https://dl.google.com/chrome/install/latest/chrome_installer.exe"
 
-# Define the arguments for silent installation
-$arguments = "/silent /install"
+# Define the path to save the installer
+$installerPath = Join-Path $env:TEMP (Split-Path $installerUrl -Leaf)
 
-# Start the process and wait for it to complete
-Start-Process $installerPath -ArgumentList $arguments -Wait -NoNewWindow
+# Download the installer
+Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
 
-$logFile = "C:\LogFile.log"
-$arguments += " /L*V `"$logFile`""
+# Run the installer silently
+Start-Process -FilePath $installerPath -ArgumentList "/silent", "/install" -Wait
+
+# Check if the installation was successful by confirming the executable exists in the default install directory
+if (Test-Path "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") {
+    Write-Output "Google Chrome installed successfully."
+} else {
+    Write-Output "Google Chrome installation failed."
+}
